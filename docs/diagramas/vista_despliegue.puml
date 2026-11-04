@@ -1,0 +1,16 @@
+@startuml
+node "Dispositivo Cliente" {
+    [Navegador Web / App Desktop] as Client
+}
+
+node "Servidor de Aplicación (Backend)" {
+    [API Backend Node.js/Java] as BackendServer
+}
+
+database "Servidor de BD (PostgreSQL)" {
+    [Base de Datos PetCare] as DBServer
+}
+
+Client -- BackendServer : HTTPS (443)
+BackendServer -- DBServer : TCP/IP (5432)
+@enduml

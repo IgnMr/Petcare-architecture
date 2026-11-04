@@ -1,0 +1,21 @@
+@startuml
+package "Frontend (Interfaz de Usuario)" {
+    [Modulo_Web_Cliente] as WebApp
+    [Modulo_Escritorio_Recepcion] as DesktopApp
+}
+
+package "Backend (API REST Core)" {
+    [Controlador_Citas] as Controller
+    [Servicio_Autenticacion] as AuthService
+    [Gestor_Fichas] as FichaService
+}
+
+package "Persistencia" {
+    [DAO_PostgreSQL] as DAO
+}
+
+WebApp ..> Controller : HTTP/JSON
+DesktopApp ..> Controller : HTTP/JSON
+Controller ..> FichaService
+FichaService ..> DAO : SQL Query
+@enduml

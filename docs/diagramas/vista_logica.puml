@@ -1,0 +1,33 @@
+@startuml
+class Dueno {
+    - id_dueno : int
+    - nombre : String
+    - rut : String
+    - telefono : String
+}
+
+class Mascota {
+    - id_mascota : int
+    - nombre : String
+    - especie : String
+    - id_dueno : int
+}
+
+class CitaMedica {
+    - id_cita : int
+    - fecha : Date
+    - motivo : String
+    - id_mascota : int
+}
+
+class FichaClinica {
+    - id_ficha : int
+    - diagnostico : String
+    - tratamiento : String
+    - id_cita : int
+}
+
+Dueno "1" -- "0..*" Mascota : registra
+Mascota "1" -- "0..*" CitaMedica : tiene
+CitaMedica "1" -- "1" FichaClinica : genera
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+Recepcionista->AgendarCitaView:Agendar datos
+AgendarCitaView->CitaController:Transferir orden
+CitaController->BaseDeDatos:buscarCitasExistentes()
+
+BaseDeDatos-->CitaController:true
+CitaController->BaseDeDatos:guardarCita()
+BaseDeDatos-->CitaController:confirmado
+CitaController-->AgendarCitaView:citaConfirmada
+AgendarCitaView-->Recepcionista:mostrarConfirmacion
+@enduml 

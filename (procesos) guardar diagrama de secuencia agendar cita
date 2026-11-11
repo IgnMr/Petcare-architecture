@@ -1,0 +1,9 @@
+[33mcommit 61e71c861aa1388191783de76a38561f20b125bd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: IgnMr <ignacio.michael.jackson@gmail.com>
+Date:   Tue Nov 10 21:03:01 2026 -0300
+
+    docs(procesos): rehacer vista de procesos deduciendo arquitectura BCE
+
+ docs/diagramas/practica.puml     |  23 [32m++++++[m
+ docs/diagramas/vista_logica.puml | 150 [32m+++++++++++++++++++++++++++++++++[m[31m------[m
+ 2 files changed, 150 insertions(+), 23 deletions(-)

@@ -1,0 +1,23 @@
+@startuml
+rectangle "Sistema Petcare" {
+  (Agendar Cita)
+  (Iniciar Sesion)
+  (Registrar Mascota)
+  (Consultar Ficha Medica)
+  (Registrar Vacuna)
+  (Generar Receta)
+
+  (Agendar Cita) ..> (Iniciar Sesion) : <<include>>
+  (Generar Receta) ..> (Consultar Ficha Medica) : <<extend>>
+}
+
+:Recepcionista: --> (Agendar Cita)
+:Recepcionista:-->(Generar Receta)
+:Recepcionista: --> (Registrar Mascota)
+
+
+:Veterinario: --> (Consultar Ficha Medica)
+:Veterinario: --> (Registrar Vacuna)
+
+:Servicio Notificaciones:-->(Enviar Recordatorio Vacuna)
+@enduml

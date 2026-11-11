@@ -1,33 +1,137 @@
 @startuml
-class Dueno {
-    - id_dueno : int
-    - nombre : String
-    - rut : String
-    - telefono : String
+
+class Tutor{
+
+    -rut:Int
+
+    -nombre:String
+
+    -apellido_Paterno:String
+
+    -apellido_Materno:String
+
+    -numero_Telefono:Int
+
+    -correo:String
+
+    +actualizarContacto():Boolean
+
 }
 
-class Mascota {
-    - id_mascota : int
-    - nombre : String
-    - especie : String
-    - id_dueno : int
+class Mascota{
+
+    -id_Mascota:Int
+
+    -nombre:String
+
+    -especie:String
+
+    +calcularEdad():int
+
 }
 
-class CitaMedica {
-    - id_cita : int
-    - fecha : Date
-    - motivo : String
-    - id_mascota : int
+
+
+class FichaMedica{
+
+    -idFicha:Int
+
+    -fecha:Timestamp
+
+    -peso:float
+
+    -motivoCita:String
+
+    -diagnostico:String
+
+    +registrarAtencion():Boolean
+
 }
 
-class FichaClinica {
-    - id_ficha : int
-    - diagnostico : String
-    - tratamiento : String
-    - id_cita : int
+
+
+class Cita{
+
+    -idCita:Int
+
+    -fechaAtencion:Timestamp
+
+    -razonAtencion:String
+
+    -estadoAtencion:String
+
+    +guardarCita():Boolean
+
+
+
 }
 
-Dueno "1" -- "0..*" Mascota : registra
-Mascota "1" -- "0..*" CitaMedica : tiene
-CitaMedica "1" -- "1" FichaClinica : genera
+
+
+class Veterinario{
+
+    -rut:Int
+
+    -nombre:String
+
+    -especialidad:String
+
+    -numero_Telefono_:int
+
+    -correo:String
+
+    +firmarReceta():Boolean
+
+}
+
+
+
+class Vacuna{
+
+    -idVacuna:Int
+
+    -nombreVacuna:String
+
+    -tipoVacuna:String
+
+    -fechaAplicacion:date
+
+    -fecha_Proxima_Dosis:date
+
+    +aplicarDosis():Boolean
+
+}
+
+
+
+class Tratamiento{
+
+    -idTratamiento:Int
+
+    -tipoTratamiento:String
+
+    -tiempoTratamiento:String
+
+    +asignarTratamiento():Boolean
+
+}
+
+
+
+Tutor "1"--"1..*" Mascota
+
+Mascota "1"--"0..*" Cita
+
+Mascota "1"--"0..*" FichaMedica
+
+Veterinario "1"--"0..*"Cita
+
+Veterinario "1"--"0..*" FichaMedica
+
+FichaMedica "1"--"0..*"Vacuna
+
+FichaMedica "1"--"0..*"Tratamiento
+
+
+
 @enduml
